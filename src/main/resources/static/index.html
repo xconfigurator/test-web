@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Default Welcome Page</title>
+    <!--<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">--><!-- icon -->
+</head>
+<body>
+    默认的欢迎页面。如果不做任何配置，放在这里就生效。<br>
+    若配置文件中指定了spring.mvc.static-path-pattern则本页面失效！<br>
+    小结：若配置文件中指定了spring.mvc.static-path-pattern则如下会失效<br>
+    <ul>
+        <li>1. 默认的欢迎页面</li>
+        <li>2. favicon</li>
+    </ul>
+    <br>
+    若通过registry.addViewController("/").setViewName("liuyang_welcome.html");方式指定了默认页面，则优先级高于本页面。
+</body>
+</html>
