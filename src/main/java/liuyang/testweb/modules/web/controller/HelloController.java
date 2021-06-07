@@ -1,21 +1,20 @@
 package liuyang.testweb.modules.web.controller;
 
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 /**
- * @author liuyang(wx)
- * @since 2021/5/22
+ * @author liuyang
+ * @scine 2021/5/25
  */
-@RestController
+@Controller
+@Slf4j
 public class HelloController {
-    /*@RequestMapping("/")
-    public String hello() {
-        return "hello";
-    }*/
 
-    @RequestMapping("/bug.jpg")
-    public String testStatic() {
-        return "动态资源路由规则优先。";
+    @RequestMapping("/helloview")
+    public String helloView() {
+        log.info("helloView()");
+        return "helloView";// 组件支撑：BeanNameViewResolver 自定义View参见HelloView
     }
 }
