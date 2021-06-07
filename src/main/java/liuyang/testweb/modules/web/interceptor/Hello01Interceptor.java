@@ -1,6 +1,7 @@
 package liuyang.testweb.modules.web.interceptor;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author liuyang
  * @scine 2021/5/25
  */
+@Component
 @Slf4j
 public class Hello01Interceptor implements HandlerInterceptor {
     @Override
