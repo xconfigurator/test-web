@@ -69,3 +69,36 @@ favicon放置在静态资源内目录下即可
    - 注意把浏览器缓存彻底清掉（或者F12后选择禁用缓存）然后重新打开（只要浏览器不关就是同一次会话，只要第一次没出来，那么后面都不会出来。）
    - FaviconConfig.java还没调试通(所以目前(2021/5/22)如果指定了静态文件的统一访问路径，则favicon则失效。)
 3. 
+
+
+### Web原生组件注入
+[文档](https://www.yuque.com/atguigu/springboot/vgzmgh#xnb02)
+```Java
+@Configuration
+public class MyRegistConfig {
+
+    @Bean
+    public ServletRegistrationBean myServlet(){
+        MyServlet myServlet = new MyServlet();
+
+        return new ServletRegistrationBean(myServlet,"/my","/my02");
+    }
+
+
+    @Bean
+    public FilterRegistrationBean myFilter(){
+
+        MyFilter myFilter = new MyFilter();
+//        return new FilterRegistrationBean(myFilter,myServlet());
+        FilterRegistrationBean filterRegistrationBean = new FilterRegistrationBean(myFilter);
+        filterRegistrationBean.setUrlPatterns(Arrays.asList("/my","/css/*"));
+        return filterRegistrationBean;
+    }
+
+    @Bean
+    public ServletListenerRegistrationBean myListener(){
+        MySwervletContextListener mySwervletContextListener = new MySwervletContextListener();
+        return new ServletListenerRegistrationBean(mySwervletContextListener);
+    }
+}
+```
