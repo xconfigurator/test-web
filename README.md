@@ -102,3 +102,9 @@ public class MyRegistConfig {
     }
 }
 ```
+
+
+### 如果需要
+修改Thymeleaf编码的方法。  
+templateResolver.setCharacterEncoding("UTF-8");  
+
